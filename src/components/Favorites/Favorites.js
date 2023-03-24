@@ -91,7 +91,7 @@ class Favorites extends Component {
                     <ul className="favorites_list">
                         {this.props.myState && this.props.myState.map((item) => (
                             <li className="flex" key={item.id}>
-                                <div className="favorites_item" key={item.id}>
+                                <div className="favorites_item">
                                     {item.value}
 
                                 </div>
