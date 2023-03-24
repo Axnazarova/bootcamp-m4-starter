@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './ListPage.css';
-import { store } from '../../store/store'
+
 
 class ListPage extends Component {
     state = {
@@ -28,7 +28,7 @@ class ListPage extends Component {
                         const link = item.imdbID
                         return (
                             <li key={item.imdbID}>
-                                <a href={`https://www.imdb.com/title/${link}/`} target="_blank">{item.title} ({item.year})</a>
+                                <a href={`https://www.imdb.com/title/${link}/`} target="_blank" rel="noopener noreferrer">{item.title} ({item.year})</a>
 
 
                             </li>

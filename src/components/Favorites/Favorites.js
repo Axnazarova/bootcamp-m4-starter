@@ -82,7 +82,7 @@ class Favorites extends Component {
                 <div className="favorites">
                     <input onChange={this.addTitle} value={this.state.inputTitle} className="favorites__name" placeholder="Введите название списка" disabled={hideButton} />
 
-
+                    {/* 
                     <ul className="favorites_list">
                         {this.props.myState && this.props.myState.map((item) => (
                             <div className="flex">
@@ -95,6 +95,22 @@ class Favorites extends Component {
                                     this.props.onDelete(item.id)
                                 }} className="favorites_delete">X</button>
                             </div>
+                        ))} */}
+
+
+
+                    <ul className="favorites_list">
+                        {this.props.myState && this.props.myState.map((item) => (
+                            <li className="flex" key={item.id}>
+                                <div className="favorites_item" key={item.id}>
+                                    {item.value}
+
+                                </div>
+                                <button onClick={(event) => {
+                                    event.preventDefault()
+                                    this.props.onDelete(item.id)
+                                }} className="favorites_delete">X</button>
+                            </li>
                         ))}
 
 
