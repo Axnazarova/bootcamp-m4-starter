@@ -5,6 +5,7 @@ import './Favorites.css';
 import { store } from '../../store/store'
 
 
+
 class Favorites extends Component {
     state = {
         inputTitle: '',
@@ -38,7 +39,7 @@ class Favorites extends Component {
 
             const id = response.data.id;
             this.setState({
-                id: `/list/${id}`
+                id: id
             });
 
             store.dispatch({
@@ -69,35 +70,23 @@ class Favorites extends Component {
 
 
 
+
     render() {
 
-        const { inputTitle, hideButton, store } = this.state;
+
+
+        const { inputTitle, hideButton, store, id } = this.state;
 
 
 
         return (
 
 
+
+
             <form >
                 <div className="favorites">
                     <input onChange={this.addTitle} value={this.state.inputTitle} className="favorites__name" placeholder="Введите название списка" disabled={hideButton} />
-
-                    {/* 
-                    <ul className="favorites_list">
-                        {this.props.myState && this.props.myState.map((item) => (
-                            <div className="flex">
-                                <li className="favorites_item" key={item.id}>
-                                    {item.value}
-
-                                </li>
-                                <button onClick={(event) => {
-                                    event.preventDefault()
-                                    this.props.onDelete(item.id)
-                                }} className="favorites_delete">X</button>
-                            </div>
-                        ))} */}
-
-
 
                     <ul className="favorites_list">
                         {this.props.myState && this.props.myState.map((item) => (
@@ -117,11 +106,15 @@ class Favorites extends Component {
 
 
                     </ul>
-                    {hideButton && store ? <Link to={this.state.id}>Перейти к списку</Link> : <button onClick={this.saveList} type="button" className="favorites__save" disabled={!inputTitle}>Сохранить список</button>}
+                    {hideButton && store ? <Link to={`/list/${id}`}>Перейти к списку</Link> : <button onClick={this.saveList} type="button" className="favorites__save" disabled={!inputTitle}>Сохранить список</button>}
                 </div>
             </form >
         );
     }
 }
 
+
+
 export default Favorites;
+
+

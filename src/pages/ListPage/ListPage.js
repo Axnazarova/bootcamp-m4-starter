@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './ListPage.css';
+import { withRouter } from 'react-router-dom';
+
 
 
 class ListPage extends Component {
@@ -11,13 +13,17 @@ class ListPage extends Component {
 
 
 
+
+
     componentDidMount() {
 
         this.setState({ movies: this.props.store, titleList: this.props.titleName })
+
     }
 
 
     render() {
+
 
         return (
             <div className="list-page" >
@@ -29,8 +35,6 @@ class ListPage extends Component {
                         return (
                             <li key={item.imdbID}>
                                 <a href={`https://www.imdb.com/title/${link}/`} target="_blank" rel="noopener noreferrer">{item.title} ({item.year})</a>
-
-
                             </li>
                         );
                     })}
@@ -41,4 +45,5 @@ class ListPage extends Component {
 }
 
 
-export default ListPage;
+
+export default withRouter(ListPage);

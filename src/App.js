@@ -12,9 +12,10 @@ class App extends React.Component {
   render() {
 
     return (
+
       <div className="app">
         <Route path="/" exact component={MainPage} />
-        <Route path="/list/*" exact component={() => <ListPage store={store.getState().movie} titleName={store.getState().name} id={store.getState().id} />} />
+        <Route path="/list/:id" exact component={() => <ListPage store={store.getState().movie} titleName={store.getState().name} />} />
       </div>
     );
   }
