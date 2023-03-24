@@ -26,7 +26,7 @@ class Favorites extends Component {
         const myState = this.props.myState;
         const list = {
             title: inputTitle,
-            movies: myState.map((item) => item.id),
+            movies: myState.map((item) => item),
         };
 
         try {
@@ -73,16 +73,9 @@ class Favorites extends Component {
 
     render() {
 
-
-
         const { inputTitle, hideButton, store, id } = this.state;
 
-
-
         return (
-
-
-
 
             <form >
                 <div className="favorites">
@@ -101,9 +94,6 @@ class Favorites extends Component {
                                 }} className="favorites_delete">X</button>
                             </li>
                         ))}
-
-
-
 
                     </ul>
                     {hideButton && store ? <Link to={`/list/${id}`}>Перейти к списку</Link> : <button onClick={this.saveList} type="button" className="favorites__save" disabled={!inputTitle}>Сохранить список</button>}
